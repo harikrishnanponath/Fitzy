@@ -1,4 +1,4 @@
-package com.harikrish.fitzy.ui.screens
+package com.harikrish.fitzy.ui.screens.components
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
@@ -34,8 +34,7 @@ fun RowProducts(
             val products = (productResult as NetworkResponse.Success).data
             LazyRow  {
                 items(products) { product ->
-                    ProductCardView(product, 180.dp)
-
+                    ProductCardView(product, 160.dp)
                 }
             }
         }
