@@ -39,11 +39,6 @@ import com.harikrish.fitzy.ui.theme.FitzyTheme
 @Composable
 fun HomeScreen(viewModel: FitzyViewModel = hiltViewModel(), navController: NavController) {
 
-    val poppinsFontFamily = FontFamily(
-        Font(R.font.gothic),  // Regular font weight
-        Font(R.font.gothic, FontWeight.Bold)  // Bold font weight
-    )
-
     val productResult by viewModel.productResult.collectAsState()
     val searchKey by viewModel.searchKey.collectAsState()
 
@@ -65,7 +60,6 @@ fun HomeScreen(viewModel: FitzyViewModel = hiltViewModel(), navController: NavCo
             Text(
                 text = "Hello Hari",
                 fontSize = 32.sp,
-                fontFamily = poppinsFontFamily,
                 fontWeight = FontWeight.SemiBold,
                 color = Color.White,
                 modifier = Modifier.padding(start = 24.dp, end = 24.dp)
