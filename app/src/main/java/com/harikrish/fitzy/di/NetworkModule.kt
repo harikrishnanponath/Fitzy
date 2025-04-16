@@ -14,6 +14,7 @@ import javax.inject.Singleton
 object NetworkModule {
 
     private const val BASE_URL = "https://fakestoreapi.com"
+    private const val SECOND_BASE_URL = "https://api.escuelajs.co/api"
 
     @Provides
     @Singleton
@@ -29,4 +30,5 @@ object NetworkModule {
     fun provideFitzyApi(retrofit: Retrofit): FitzyApi {
         return retrofit.create(FitzyApi::class.java)
     }
+
 }

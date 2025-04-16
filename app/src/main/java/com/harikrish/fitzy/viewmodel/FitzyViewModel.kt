@@ -1,14 +1,11 @@
 package com.harikrish.fitzy.viewmodel
 
 
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.harikrish.fitzy.data.api.FitzyApi
 import com.harikrish.fitzy.data.model.NetworkResponse
 import com.harikrish.fitzy.data.model.ProductItem
-
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -26,6 +23,9 @@ class FitzyViewModel @Inject constructor(
 
     private val _searchKey = MutableStateFlow("")
     val searchKey : StateFlow<String> = _searchKey
+
+    private val _product = MutableStateFlow<ProductItem?>(null)
+    val product: MutableStateFlow<ProductItem?> = _product
 
     fun getAllProducts() {
         viewModelScope.launch {
@@ -47,8 +47,17 @@ class FitzyViewModel @Inject constructor(
         }
     }
 
-    fun getProductById() {
+    fun getProductById(id: Int) {
+        viewModelScope.launch {
+            try{
+                val productItem = api.getProductById(id)
+                _product.value = productItem.body()
+            }
+            catch (e: Exception){
+                _product.value = null
+            }
 
+        }
     }
 
     fun onSearchKeyChange(newKey: String) {

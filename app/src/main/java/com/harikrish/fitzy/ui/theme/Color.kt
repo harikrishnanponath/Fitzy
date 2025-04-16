@@ -12,3 +12,7 @@ val Pink40 = Color(0xFF7D5260)
 
 val Yellow700 = Color(0xFFFBC02D)
 val Green800 = Color(0xFF2E7D32)
+val Green400 = Color(0xFF188F1D)
+val Purple600 = Color(0xFF7B1FA2)
+val Purple400 = Color(0xFFAB47BC)
+val Brown400 = Color(0xFFBB5939)
